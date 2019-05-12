@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>news</title>
+</head>
+<body>
+<form action="/news" method="post">
+    <legend>请输入你想查询的哈希值</legend>
+    <p><input name="hash_key" placeholder="哈希值" ></p>
+    <p><button type="submit">输入</button></p>
+</form>
+{% if new %}
+        <p>你曾经发过的内容为：<br/>{{ new}}</p>
+{% endif %}
+</body>
+</html>
