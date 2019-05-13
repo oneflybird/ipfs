@@ -15,7 +15,7 @@ class hashid(db.Model):
     # 添加主键
     id = db.Column(db.Integer, primary_key=True)
     # 用户名
-    hash = db.Column(db.String(64), unique=True)
+    hash = db.Column(db.String(256), unique=True)
     is_public = db.Column(db.Boolean(),default=False)
 if __name__ == '__main__':
     # 先删除表
