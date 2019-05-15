@@ -1,0 +1,16 @@
+README.rst
+setup.cfg
+setup.py
+ipfsApi/__init__.py
+ipfsApi/client.py
+ipfsApi/commands.py
+ipfsApi/encoding.py
+ipfsApi/exceptions.py
+ipfsApi/http.py
+ipfsApi/multipart.py
+ipfsApi/utils.py
+ipfs_api.egg-info/PKG-INFO
+ipfs_api.egg-info/SOURCES.txt
+ipfs_api.egg-info/dependency_links.txt
+ipfs_api.egg-info/requires.txt
+ipfs_api.egg-info/top_level.txt

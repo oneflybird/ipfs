@@ -1,0 +1,21 @@
+Metadata-Version: 1.1
+Name: ipfs-api
+Version: 0.2.3
+Summary: IPFS API Bindings for Python
+Home-page: https://github.com/amstocker/python-ipfs-api
+Author: Andrew Stocker
+Author-email: sleepyams@gmail.com
+License: MIT
+Description: UNKNOWN
+Keywords: ipfs requests development
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4

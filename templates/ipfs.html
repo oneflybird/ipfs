@@ -6,14 +6,18 @@
 </head>
 <body>
 <form method="POST">
-    {{ form.hidden_tag() }}
-    {{ form.words.label }}<br/>
-    {{ form.words() }}
-    {{ form.submit() }}
+
+    <p><input name="hash_key" placeholder="要说的话" ></p>
+    <p><button type="submit">提交</button></p>
+
 </form>
 {% if hash_key %}
         <p>你得到的hash值是<br/>{{ hash_key }}<br/>
         之后你可以用它来查看你曾经发出过的消息</p>
+{% endif %}
+{% if message %}
+        <p>提示:<br/>{{ message }}<br/>
+        </p>
 {% endif %}
 </body>
 </html>
