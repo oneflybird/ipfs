@@ -17,7 +17,7 @@ def getdata():
     # form = NameForm()
     # hash_key = ''
     if request.method == 'POST':
-        text = request.form['hash_key']
+        text = request.values['hash_key']
         if text == '':
             return render_template('ipfs.html', message='输入内容不能为空')
         else:
