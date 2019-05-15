@@ -14,7 +14,7 @@
     <option name="TEMPLATE_CONFIGURATION" value="Jinja2" />
     <option name="TEMPLATE_FOLDERS">
       <list>
-        <option value="$MODULE_DIR$/../tes_bytom\templates" />
+        <option value="F:/tes_bytom\templates" />
       </list>
     </option>
   </component>
