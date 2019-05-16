@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # -*- coding: utf-8 -*-
 import ipfsapi
 from flask import Flask, render_template, session, redirect, url_for, request
@@ -57,7 +56,7 @@ def news():
 
 
 
-@app.route('/public',methods=['GET', 'POST'])
+@app.route('/public',methods=['GET', 'POST'])  #显示所有选择公开的话,功能上应该实现超链接
 def index():
     api =ipfsapi.connect('129.211.27.244', 5001)
     a = db.session.query(hashid).filter(hashid.hash != '', hashid.hashed == '', hashid.is_public == 1).order_by(
@@ -66,15 +65,14 @@ def index():
     for i in a:
         b = api.cat(i.hash).decode('gbk')
         c = str(i.createtime)
-        p = p + '<br/>' + c + '        ' + b + '<br/>'
+        p = p + '<br/>' + c + '        ' + b + '<br/>'       #这里显示排版有问题
     return render_template('public.html',message = p)
 
 
 
 @app.route('/public/<hash1>',methods=['GET', 'POST'])
-def comment(hash1):                                      #变量hash是帖主说的话的哈希值
+def comment(hash1):                                      #变量hash1是帖主说的话的哈希值
     api = ipfsapi.connect('129.211.27.244', 5001)
-    #显示主贴和回复的话
     master = hash1
     main=api.cat(master).decode('gbk')
     reply=db.session.query(hashid).filter(hashid.hash != '', hashid.hashed == master, hashid.is_public == 1).order_by(
@@ -83,7 +81,8 @@ def comment(hash1):                                      #变量hash是帖主说
     for i in reply:
         b = api.cat(i.hash).decode('gbk')
         c = str(i.createtime)
-        p = p + '<br/>' + c + '        ' + b + '<br/>'
+        p = p + '<br/>' + c + '        ' + b + '<br/>'     #同样显示排版有问题
+    #显示主贴和回复的话
     if request.method=='GET':
         return render_template('comment.html', main=main,reply=p)
     #下面是评论
@@ -105,13 +104,6 @@ def comment(hash1):                                      #变量hash是帖主说
         return render_template('comment.html', hash_key=hash_key,main=main,reply=p)
     return render_template('comment.html')
 
-# @app.route('/',methods=['GET'])
-# def index():
-#     return render_template('index.html')
-
 
 if __name__ == '__main__':
     app.run()
-=======
-# -*- coding: utf-8 -*-import ipfsapifrom flask import Flask, render_template, session, redirect, url_for, requestfrom wtforms import StringField, SubmitFieldfrom wtforms.validators import Requiredfrom flask_wtf import Formapp = Flask(__name__)app.config["SECRET_KEY"] = "12345678"# class NameForm(Form):#     words = StringField('这是属于您的树洞，请说出任何您想说的话，不会有任何人知道您的真实身份', validators=[Required()])#     submit = SubmitField('Submit')@app.route('/shudong',methods=['GET', 'POST'])def shudong():    api = ipfsapi.connect('129.211.27.244', 5001)    # form = NameForm()    # hash_key = ''    if request.method == 'POST':        text = request.values['words']        print(text)        if text == '':            return render_template('ipfs.html', message='输入内容不能为空')        else:            with open('cont.txt', 'w') as f:                f.write(text)            hash_key = api.add('cont.txt')['Hash']            with open('cont.txt', 'w') as f:                f.write("")            return render_template('ipfs.html',hash_key = hash_key)    return render_template('ipfs.html')@app.route('/news',methods=['GET', 'POST'])def news():    new = ''    api = ipfsapi.connect('129.211.27.244', 5001)    if request.method == 'POST':        hash_key = request.form['hash_key']        print(hash_key)        new = api.cat(hash_key).decode('gbk')        print(new)    return render_template('news.html',new = new)# @app.route('/',methods=['GET'])# def index():#     return render_template('index.html')if __name__ == '__main__':    app.run()
->>>>>>> db8df9f45222f975cd7046e4664de89b36f2bdab
