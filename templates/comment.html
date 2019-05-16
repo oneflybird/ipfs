@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>留言</title>
+</head>
+<body>
+<form method="GET">
+    <legend>主贴</legend>
+     <p><br/>{{ main }}<br/><p>
+    <legend>回复</legend>
+     <p><br/>{{ reply }}<br/><p>
+</form>>
+<form method="POST">
+
+    <legend>评论</legend>
+    <textarea name="demo" cols="50" rows="10"></textarea><br/><br/>
+    <p><button type="submit">发送</button></p>
+</form>
+{% if hash_key %}
+        <p><br/>评论成功<br/>
+        </p>
+{% endif %}
+
+
+{% if message %}
+        <p>提示:<br/>{{ message }}<br/>
+        </p>
+{% endif %}
+</body>
+</html>

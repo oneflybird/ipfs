@@ -8,8 +8,14 @@
 <form method="POST">
 
     <p><input name="hash_key" placeholder="要说的话" ></p>
-    <p><button type="submit">提交</button></p>
+    <legend>是否公开</legend>
+    <select name="public">
+        <option value="1">是</option>
+        <option value="0">否</option>
 
+    </select>
+
+    <p><button type="submit">提交</button></p>
 </form>
 {% if hash_key %}
         <p>你得到的hash值是<br/>{{ hash_key }}<br/>
