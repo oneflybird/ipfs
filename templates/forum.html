@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="开放论坛首页">
+    <meta name="author" content="Michael">
+    <title>Welcome!</title>
+    <!-- Bootstrap core CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/private.html">Private TreeHole</a>
+            </li>
+        </ul>
+    </div>
+    <a class="navbar-brand mx-auto" href="/">Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/forum.html">Open TreeHole</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-xs-10 col-sm-15">
+            <div class="jumbotron">
+                <h1 style="text-align: center">Welcome to the our open anonymous treehole!</h1><br>
+                <p> Here you can see other's sharing of their feelings. You can comment on their posts freely.</p>
+            </div>
+            <div class="row">
+                {% for stu in stus %}
+                <div class="col-xs-6 col-lg-4">
+                    <h2></h2>
+                    <p>内容节选:{{ stu.hash }}</p>
+                    <p><a class="btn btn-default" href="/forum.html/？{{ stu.id }}" role="button">View details&raquo;</a></p>
+                    <p>发布时间:{{ stu.createtime }}</p>
+
+                </div><!--/.col-xs-6.col-lg-4-->
+                {% endfor %}
+            </div><!--/row-->
+        </div><!--/.col-xs-12.col-sm-9-->
+
+    </div><!--/row-->
+
+    <!--/row justify-->
+    <div class="row justify-content-md-center">
+        <div class="col-md-auto">
+            <ul class="pagination pagination-sm">
+                {% if paginate.has_prev %}
+                <li class="page-item active"><a class="page-link" href="/forum.html/?page={{ paginate.prev_num }}">上一页</a>
+                </li>
+
+                {% endif %}
+                {% for i in paginate.iter_pages(1,1,3,1) %}
+                {%if i%}
+                <li class="page-item {%if i==paginate.page%}active{%endif%}"><a class="page-link"
+                                                                                href="/forum.html/?page={{ i }}">{{
+                    i }}</a></li>
+                {%else%}
+                <li class="page-item disabled"><a class="page-link" href="#">&hellip;</a></li>
+                {%endif%}
+                {% endfor %}
+                {% if paginate.has_next %}
+                <li class="page-item active"><a class="page-link" href="/forum.html/?page={{ paginate.next_num }}">下一页</a>
+                </li>
+
+                {% endif %}
+            </ul>
+        </div>
+    </div><!--row justify-->
+
+</div><!--/.container-->
+<!--footer-->
+<footer class="page-footer font-small bg-dark">
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3" style="color:lightgray">
+        © 2019 Copyright: Flag立不起来队
+    </div>
+    <!-- Copyright -->
+
+</footer>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="js/jquery-3.4.1.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/jquery-3.4.1.min.js"><\/script>')</script>
+<script src="js/bootstrap.min.js"></script>
+
+</body>
+</html>

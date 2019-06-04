@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="私密树洞">
+    <meta name="author" content="Michael">
+    <title>Your Anonymous Tree</title>
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/bootstrap.min.js"></script>
+    <style type="text/css">
+        html,
+        body,
+        header,
+        .view {
+            height: 100%;
+        }
+
+        .subtitle {
+            color: black;
+            font-size: 20px;
+            text-align: center;
+            font-family: Arial, serif;
+        }
+
+        .clr {
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/private.html">Private TreeHole</a>
+                </li>
+            </ul>
+        </div>
+        <a class="navbar-brand mx-auto" href="/">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/forum.html">Open TreeHole</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="view"
+         style="background-image:url(/static/img/timg.jpg);background-repeat: no-repeat; background-size: cover; background-position: center center;">
+
+        <div class="container">
+            <form role="form" name="words" action="private.html" method="post">
+                <div class="subtitle">
+                    <div class="clr"></div>
+                    <h3 style="color:white">Share your instant feelings below...</h3>
+                </div>
+                <div class="form-group">
+                    <textarea  class="form-control" name="hash_key" rows="15" id="typed" placeholder="求求你说点什么吧" style="resize: none"></textarea>
+                </div>
+                <div style="text-align: center">
+
+
+                    <p><label style="color:white">是否公开？</label>
+                    <select id="inputState" name="public">
+                        <option value= 1 selected>是</option>
+                        <option value= 0>否</option>
+                    </select>
+                    <div class="clr"></div>
+                    <button type="button" class="btn btn-light" onclick="checkVali()">submit</button>
+	</div>
+	
+            </form>
+            <div class="clr"></div>
+            <p style="color:white">Hash:{{ hash_key }}</p>
+            <!--<textarea id="hash" class="form-control" cols="120" rows="1" style="resize: none">返回哈希值（一开始隐藏）</textarea>-->
+            <div class="clr"></div>
+            <div class="row justify-content-lg-center">
+                <div class="col-md-auto">
+                    <button type="button" class="btn btn-light"><a href="check.html">Go to see your content</a></button>
+                </div>
+            </div>
+            <div class="clr"></div>
+        </div>
+    </div>
+
+
+
+</header>
+
+<!--footer-->
+<footer class="page-footer font-small bg-dark fixed-bottom">
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3" style="color:lightgray">
+        © 2019 Copyright: Flag立不起来队
+    </div>
+    <!-- Copyright -->
+
+</footer>
+
+<script>
+    function checkVali() {
+        if (typed.value === "") {
+            alert("请输入内容再提交！");
+            typed.focus()
+        } else {
+            words.submit()
+        }
+    }
+
+</script>
+
+</body>
+</html>
+
+
+
+
