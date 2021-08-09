@@ -164,7 +164,7 @@ python-engineio==3.5.1
 python-socketio==3.1.2
 pytz==2018.5
 PyWavelets==1.0.1
-pywin32==223
+pywin32==301
 pywinpty==0.5.5
 PyYAML==3.13
 pyzmq==17.1.2
